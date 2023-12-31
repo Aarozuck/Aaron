@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Customer Profile - {{ customer.full_name }}</h2>
+<p>Full Name: {{ customer.full_name }}</p>
+<p>Phone Number: {{ customer.phone_number }}</p>
+
+<a href="{% url 'home' %}">Back to Home</a>
+{% endblock %}

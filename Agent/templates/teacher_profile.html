@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<h2>Teacher Profile - {{ teacher.full_name }}</h2>
+<p>Full Name: {{ teacher.full_name }}</p>
+<p>Phone Number: {{ teacher.phone_number }}</p>
+<p>Abilities: {{ teacher.abilities }}</p>
+<p>Subjects: {{ teacher.subjects }}</p>
+<p>Price per Hour: {{ teacher.price_per_hour }}</p>
+<p>Schools Taught: {{ teacher.schools_taught }}</p>
+
+<h3>Customer Ratings and Comments:</h3>
+{% if ratings %}
+    {% for rating in ratings %}
+        <div class="card">
+            <p>Rating: {{ rating.rating }}</p>
+            <p>Comment: {{ rating.comment }}</p>
+            <p>Customer: {{ rating.customer.full_name }}</p>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No ratings available.</p>
+{% endif %}
+
+<a href="{% url 'home' %}">Back to Home</a>
+
+{% endblock %}
